@@ -30,8 +30,10 @@ import {
 
     getWithdrawLimit,
 
-    getExperience
+    getExperience,
 
+    getAllUsers,
+    editUserVars,
 } from '../controllers/userActions.js';
 
 
@@ -63,5 +65,9 @@ router.post('/discord', saveDiscord);
 router.post('/withdraw-limit', getWithdrawLimit);
 
 router.get('/exp', getExperience);
+
+/* routes for admin panel */
+router.get('/all', getAllUsers);
+router.post('/edit', editUserVars);
 
 export default router;

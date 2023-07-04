@@ -1883,3 +1883,74 @@ const checkIpAddress = async (req, user) => {
 
     return true;
 }
+
+/*******************************************************************/
+export const getAllUsers = asyncHandler(async(req, res) => {
+    const users = await User.find();
+    res.status(200).json({
+        users
+    });
+});
+
+export const editUserVars = asyncHandler(async(req, res) => {
+    const { addresses, type, value } = req.body;
+
+    const field = type === 'Res' ? 'resource'
+        : type === 'Eggs' ? 'eggs'
+        : type === 'Gbaks' ? 'gbaks'
+        : type === 'Premium' ? 'premium'
+        : type === 'Mining Module' ? 'miningModule'
+        : type === 'Gold Mine' ? 'goldMine'
+        : type === 'Uranium Mine' ? 'uraniumMine'
+        : '';
+    if (!field) {
+        RESPONSE(res, 400, {}, "Type mismatch");
+    }
+
+    const existingAddresses = await User.find({ walletAddress: { $in: addresses } })
+      .distinct('walletAddress');
+    
+    /* update field value if wallet address already exists */
+    if (['resource', 'eggs', 'gbaks'].includes(field)) {
+        await User.updateMany(
+            { walletAddress: { $in: existingAddresses } },
+            { $inc: {[field]: value},},
+            { upsert: true }
+        );
+    } else {
+        const date = new Date(value);
+        await User.updateMany(
+            { walletAddress: { $in: existingAddresses } },
+            { [field]: date },
+            { upsert: true }
+        );
+    }
+
+    /* create new one if wallet address not exist */
+    const character = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+    const fieldValue = ['resource', 'eggs', 'gbaks'].includes(field) ? value : new Date(value);
+    const nonExistingAddresses = addresses.filter(address => !existingAddresses.includes(address));
+    for (const index in nonExistingAddresses) {
+        let curTime = new Date().getTime() + index;
+        let refString = "";
+        while(curTime > 0) {
+            let rem = curTime % character.length;
+            refString += character.charAt(rem);
+            curTime = Math.floor(curTime/10);
+        }
+
+        const newUser = new User({
+            walletAddress: nonExistingAddresses[index],
+            [field]: fieldValue,
+            stakedBirds: [],
+            userRef: refString,
+            isvip: 0,
+        });
+        await newUser.save();
+    }
+
+    res.status(200).json({
+        success: true,
+        message: 'success'
+    })
+});
