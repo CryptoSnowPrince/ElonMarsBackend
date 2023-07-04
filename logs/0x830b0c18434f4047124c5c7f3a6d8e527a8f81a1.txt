@@ -1,0 +1,76 @@
+[Sat Feb 18 2023 11:41:55 GMT+0900 (Japan Standard Time)]  [REQUEST] (Claim Diamond) 0 
+[Sat Feb 18 2023 11:41:55 GMT+0900 (Japan Standard Time)]  [REQUEST] (Claim Diamond) 0 
+[Sat Feb 18 2023 11:41:55 GMT+0900 (Japan Standard Time)]  [REQUEST] (Claim Diamond) 0 
+[Sat Feb 18 2023 11:41:55 GMT+0900 (Japan Standard Time)]  [REQUEST] (Claim Diamond) 0 
+[Sat Feb 18 2023 11:41:55 GMT+0900 (Japan Standard Time)]  [REQUEST] (Claim Diamond) 0 
+[Sat Feb 18 2023 11:41:55 GMT+0900 (Japan Standard Time)]  [REQUEST] (Claim Diamond) 0 
+[Sat Feb 18 2023 11:42:06 GMT+0900 (Japan Standard Time)]  [SUCCESS] (Claim Diamond) Updated database successfully 
+[Sat Feb 18 2023 11:42:06 GMT+0900 (Japan Standard Time)]  [SUCCESS] (Claim Diamond) Updated database successfully 
+[Sat Feb 18 2023 11:42:06 GMT+0900 (Japan Standard Time)]  [REQUEST] (Claim Diamond) 0 
+[Sat Feb 18 2023 11:42:06 GMT+0900 (Japan Standard Time)]  [REQUEST] (Claim Diamond) 0 
+[Sat Feb 18 2023 11:42:06 GMT+0900 (Japan Standard Time)]  [SUCCESS] (Claim Diamond) Updated database successfully 
+[Sat Feb 18 2023 11:42:06 GMT+0900 (Japan Standard Time)]  [REQUEST] (Claim Diamond) 0 
+[Sat Feb 18 2023 11:42:06 GMT+0900 (Japan Standard Time)]  [SUCCESS] (Claim Diamond) Updated database successfully 
+[Sat Feb 18 2023 11:42:06 GMT+0900 (Japan Standard Time)]  [REQUEST] (Claim Diamond) 0 
+[Sat Feb 18 2023 11:42:06 GMT+0900 (Japan Standard Time)]  [SUCCESS] (Claim Diamond) Updated database successfully 
+[Sat Feb 18 2023 11:42:06 GMT+0900 (Japan Standard Time)]  [SUCCESS] (Claim Diamond) Updated database successfully 
+[Sat Feb 18 2023 11:42:06 GMT+0900 (Japan Standard Time)]  [REQUEST] (Claim Diamond) 0 
+[Sat Feb 18 2023 11:42:06 GMT+0900 (Japan Standard Time)]  [REQUEST] (Claim Diamond) 0 
+[Sat Feb 18 2023 11:42:06 GMT+0900 (Japan Standard Time)]  [ERROR] (Claim Diamond) Can't find requested position 
+[Sat Feb 18 2023 11:42:06 GMT+0900 (Japan Standard Time)]  [REQUEST] (Claim Diamond) 0 
+[Sat Feb 18 2023 11:42:06 GMT+0900 (Japan Standard Time)]  [ERROR] (Claim Diamond) Can't find requested position 
+[Sat Feb 18 2023 11:42:07 GMT+0900 (Japan Standard Time)]  [REQUEST] (Claim Diamond) 0 
+[Sat Feb 18 2023 11:42:07 GMT+0900 (Japan Standard Time)]  [ERROR] (Claim Diamond) Can't find requested position 
+[Sat Feb 18 2023 11:42:07 GMT+0900 (Japan Standard Time)]  [REQUEST] (Claim Diamond) 0 
+[Sat Feb 18 2023 11:42:07 GMT+0900 (Japan Standard Time)]  [ERROR] (Claim Diamond) Can't find requested position 
+[Sat Feb 18 2023 11:42:07 GMT+0900 (Japan Standard Time)]  [REQUEST] (Claim Diamond) 0 
+[Sat Feb 18 2023 11:42:07 GMT+0900 (Japan Standard Time)]  [ERROR] (Claim Diamond) Can't find requested position 
+[Sat Feb 18 2023 11:42:07 GMT+0900 (Japan Standard Time)]  [REQUEST] (Claim Diamond) 0 
+[Sat Feb 18 2023 11:42:07 GMT+0900 (Japan Standard Time)]  [ERROR] (Claim Diamond) Can't find requested position 
+[Sat Feb 18 2023 11:42:07 GMT+0900 (Japan Standard Time)]  [REQUEST] (Claim Diamond) 0 
+[Sat Feb 18 2023 11:42:07 GMT+0900 (Japan Standard Time)]  [ERROR] (Claim Diamond) Can't find requested position 
+[Sat Feb 18 2023 11:42:07 GMT+0900 (Japan Standard Time)]  [REQUEST] (Claim Diamond) 0 
+[Sat Feb 18 2023 11:42:07 GMT+0900 (Japan Standard Time)]  [ERROR] (Claim Diamond) Can't find requested position 
+[Sat Feb 18 2023 11:42:07 GMT+0900 (Japan Standard Time)]  [REQUEST] (Claim Diamond) 0 
+[Sat Feb 18 2023 11:42:07 GMT+0900 (Japan Standard Time)]  [ERROR] (Claim Diamond) Can't find requested position 
+[Sat Feb 18 2023 11:42:07 GMT+0900 (Japan Standard Time)]  [REQUEST] (Claim Diamond) 0 
+[Sat Feb 18 2023 11:42:07 GMT+0900 (Japan Standard Time)]  [ERROR] (Claim Diamond) Can't find requested position 
+[Sat Feb 18 2023 11:42:07 GMT+0900 (Japan Standard Time)]  [REQUEST] (Claim Diamond) 0 
+[Sat Feb 18 2023 11:42:07 GMT+0900 (Japan Standard Time)]  [ERROR] (Claim Diamond) Can't find requested position 
+[Sat Feb 18 2023 11:42:07 GMT+0900 (Japan Standard Time)]  [REQUEST] (Claim Diamond) 0 
+[Sat Feb 18 2023 11:42:08 GMT+0900 (Japan Standard Time)]  [ERROR] (Claim Diamond) Can't find requested position 
+[Sat Feb 18 2023 11:42:08 GMT+0900 (Japan Standard Time)]  [REQUEST] (Claim Diamond) 0 
+[Sat Feb 18 2023 11:42:08 GMT+0900 (Japan Standard Time)]  [ERROR] (Claim Diamond) Can't find requested position 
+[Sat Feb 18 2023 11:42:08 GMT+0900 (Japan Standard Time)]  [REQUEST] (Claim Diamond) 0 
+[Sat Feb 18 2023 11:42:08 GMT+0900 (Japan Standard Time)]  [ERROR] (Claim Diamond) Can't find requested position 
+[Sat Feb 18 2023 11:42:08 GMT+0900 (Japan Standard Time)]  [REQUEST] (Claim Diamond) 0 
+[Sat Feb 18 2023 11:42:08 GMT+0900 (Japan Standard Time)]  [ERROR] (Claim Diamond) Can't find requested position 
+[Sat Feb 18 2023 11:42:08 GMT+0900 (Japan Standard Time)]  [REQUEST] (Claim Diamond) 0 
+[Sat Feb 18 2023 11:42:08 GMT+0900 (Japan Standard Time)]  [ERROR] (Claim Diamond) Can't find requested position 
+[Sat Feb 18 2023 11:42:08 GMT+0900 (Japan Standard Time)]  [REQUEST] (Claim Diamond) 0 
+[Sat Feb 18 2023 11:42:08 GMT+0900 (Japan Standard Time)]  [ERROR] (Claim Diamond) Can't find requested position 
+[Sat Feb 18 2023 11:42:08 GMT+0900 (Japan Standard Time)]  [REQUEST] (Claim Diamond) 0 
+[Sat Feb 18 2023 11:42:08 GMT+0900 (Japan Standard Time)]  [ERROR] (Claim Diamond) Can't find requested position 
+[Sat Feb 18 2023 11:42:08 GMT+0900 (Japan Standard Time)]  [REQUEST] (Claim Diamond) 0 
+[Sat Feb 18 2023 11:42:08 GMT+0900 (Japan Standard Time)]  [ERROR] (Claim Diamond) Can't find requested position 
+[Sat Feb 18 2023 11:42:08 GMT+0900 (Japan Standard Time)]  [ERROR] (Claim Diamond) Can't find requested position 
+[Sat Feb 18 2023 11:42:09 GMT+0900 (Japan Standard Time)]  [ERROR] (Claim Diamond) Can't find requested position 
+[Sat Feb 18 2023 11:42:09 GMT+0900 (Japan Standard Time)]  [ERROR] (Claim Diamond) Can't find requested position 
+[Sat Feb 18 2023 11:42:09 GMT+0900 (Japan Standard Time)]  [ERROR] (Claim Diamond) Can't find requested position 
+[Sat Feb 18 2023 11:42:09 GMT+0900 (Japan Standard Time)]  [ERROR] (Claim Diamond) Can't find requested position 
+[Tue Mar 07 2023 04:05:08 GMT+0900 (Japan Standard Time)]  [REQUEST] (Buy Land)  
+[Tue Mar 07 2023 04:05:08 GMT+0900 (Japan Standard Time)]  [REQUEST] (Check Transaction)  
+[Tue Mar 07 2023 04:05:09 GMT+0900 (Japan Standard Time)]  [SUCCESS] (Buy Land) request block number:26237602, user block number: 25831642 
+[Tue Mar 07 2023 04:05:10 GMT+0900 (Japan Standard Time)]  [SUCCESS] (Buy Land) Updated successfully 
+[Tue Mar 07 2023 04:11:44 GMT+0900 (Japan Standard Time)]  [REQUEST] (Claim Diamond) 32 
+[Tue Mar 07 2023 04:11:48 GMT+0900 (Japan Standard Time)]  [SUCCESS] (Claim Diamond) Updated database successfully 
+[Tue Mar 07 2023 04:11:56 GMT+0900 (Japan Standard Time)]  [REQUEST] (Stake Diamond) 6 
+[Tue Mar 07 2023 04:11:57 GMT+0900 (Japan Standard Time)]  [SUCCESS] (Stake Diamond) Updated database successfully 
+[Tue Mar 07 2023 04:13:38 GMT+0900 (Japan Standard Time)]  [REQUEST] (Stake Diamond) 32 
+[Tue Mar 07 2023 04:13:40 GMT+0900 (Japan Standard Time)]  [SUCCESS] (Stake Diamond) Updated database successfully 
+[Tue Mar 07 2023 04:15:01 GMT+0900 (Japan Standard Time)]  [REQUEST] (Stake Diamond) 3 
+[Tue Mar 07 2023 04:15:02 GMT+0900 (Japan Standard Time)]  [SUCCESS] (Stake Diamond) Updated database successfully 
+[Tue Mar 07 2023 04:16:26 GMT+0900 (Japan Standard Time)]  [REQUEST] (Stake Diamond) 5 
+[Tue Mar 07 2023 04:16:27 GMT+0900 (Japan Standard Time)]  [SUCCESS] (Stake Diamond) Updated database successfully 
+[Tue Mar 07 2023 04:16:30 GMT+0900 (Japan Standard Time)]  [REQUEST] (Stake Diamond) 1 
+[Tue Mar 07 2023 04:16:34 GMT+0900 (Japan Standard Time)]  [SUCCESS] (Stake Diamond) Updated database successfully 

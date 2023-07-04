@@ -1,0 +1,2 @@
+[Mon Feb 20 2023 00:19:15 GMT+0900 (Japan Standard Time)] (Withdraw:--process start--) amount: 2350 
+Transaction ID: 0x86a32a559a820aa3be4a1a309984ff887a28abf9c1e8a00417f11627a44e7f41 

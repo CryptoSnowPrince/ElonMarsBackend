@@ -1,0 +1,8 @@
+[Mon Feb 20 2023 03:55:40 GMT+0900 (Japan Standard Time)] (Withdraw:Request) amount: 5000 
+[Mon Feb 20 2023 03:58:09 GMT+0900 (Japan Standard Time)] (Withdraw:Request) amount: 5000 
+[Mon Feb 20 2023 03:59:20 GMT+0900 (Japan Standard Time)] (Withdraw:Request) amount: 5000 
+[Mon Feb 20 2023 03:59:23 GMT+0900 (Japan Standard Time)] (Withdraw:Success) amount: 5000 
+[Mon Feb 20 2023 03:59:30 GMT+0900 (Japan Standard Time)] (Withdraw:--process start--) amount: 5000 
+Transaction ID: 0x526cfa3bf08eb8b5f06df6ad4f63ca56291b1e4065e892aae392bb58803db988 
+[Mon Feb 20 2023 04:05:45 GMT+0900 (Japan Standard Time)] (Withdraw:--process start--) amount: 5000 
+Transaction ID: 0x1db26f22ad15af143535148108724ab94bdf4c591b51c46f6ec8e7ff40a5b0d8 

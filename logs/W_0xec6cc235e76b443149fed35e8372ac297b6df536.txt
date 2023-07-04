@@ -1,0 +1,4 @@
+[Mon Feb 20 2023 00:20:45 GMT+0900 (Japan Standard Time)] (Withdraw: --process start-- ) amount: 2390 
+1 BUSD transaction ID: 0xcc19370320ae8c60949d6faed5f2b9f787a13a8fcf3045e32ea9f66b7c095001 
+[Mon Feb 20 2023 00:20:47 GMT+0900 (Japan Standard Time)] (Withdraw:Database Update) amount: SUCCESS 
+[Mon Feb 20 2023 00:20:56 GMT+0900 (Japan Standard Time)] (Withdraw:Sent 239SPX) amount: SUCCESS 

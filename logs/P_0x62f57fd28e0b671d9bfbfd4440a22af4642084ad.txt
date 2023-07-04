@@ -1,0 +1,6 @@
+[Sun Jan 29 2023 00:49:40 GMT+0900 (Japan Standard Time)] (Deposit:Request) amount: 100 
+Transaction ID: 0x52246e1224d84f2c920df20316cf59625e22f092e0f0c745d4c13ac7e39f36b1 
+[Sun Jan 29 2023 00:49:41 GMT+0900 (Japan Standard Time)] (Deposit:refUser:0x724e924388c07f2961d5f8e2c6174f7bad8c39da +5) amount: 100 
+[Sun Jan 29 2023 00:49:41 GMT+0900 (Japan Standard Time)] (Deposit:refUser:0x0deac41e3ae6985a4acd6b3a57159d48ad65207a +3) amount: 100 
+[Sun Jan 29 2023 00:49:41 GMT+0900 (Japan Standard Time)] (Deposit:refUser:0x144d8fd81a9d7c0102267dd7df76d89017374baf +1) amount: 100 
+[Sun Jan 29 2023 00:49:41 GMT+0900 (Japan Standard Time)] (Deposit:Success) amount: 100 

@@ -1,0 +1,4 @@
+/node_modules
+.env
+utiles/constants.js
+*.rar
