@@ -1,3 +1,10 @@
+# ElonMarsAdminFront
+
+Yarn 1.22.19
+Node 16.20.0
+
+Please use Node
+
 ## Getting started
 
 - Install dependencies: `npm install` / `yarn install`
