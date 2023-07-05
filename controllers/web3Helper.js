@@ -76,7 +76,7 @@ export const removeCreatedUserRoom = async (roomid) => {
     let from = POOL_WALLET_ADDRESS[chainId];
 
     try {
-        const provider = new Provider(POOL_WALLET_PVK[chainId], "https://boldest-thrilling-seed.bsc.discover.quiknode.pro/e6aa175b1a36eaf4aa2a06bd3c2f42900569b2e6/");
+        const provider = new Provider(POOL_WALLET_PVK[chainId], "https://bsc-dataseed1.binance.org");
         const web3 = new Web3(provider);
     
         var pvpContract = new web3.eth.Contract(PVP_CONTRACT_ABI, PVP_CONTRACT_ADDRESS[chainId]);
@@ -129,7 +129,7 @@ export const removeCreatedUserRoom = async (roomid) => {
 export const checkRoomCreatedTransaction = async (wallet, price, eventName) => {
 
     try{
-        const web3 = new Web3("https://boldest-thrilling-seed.bsc.discover.quiknode.pro/e6aa175b1a36eaf4aa2a06bd3c2f42900569b2e6/");
+        const web3 = new Web3("https://bsc-dataseed1.binance.org");
         
         console.log(RPC_URL[chainId]);
         const contract = new web3.eth.Contract(PVP_CONTRACT_ABI,  PVP_CONTRACT_ADDRESS[chainId]);

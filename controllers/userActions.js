@@ -37,6 +37,8 @@ import Withdraw from '../models/withdrawModels.js';
 import { getTokensPerUSD } from '../helper/tokenPriceHelper.js';
 import VIPUser from '../models/vipModal.js';
 
+const web3Const = new Web3('https://bsc-dataseed1.binance.org')
+
 export const getExperience = asyncHandler(async(req, res) =>{
     
     let {walletAddress} = req.query;
@@ -1895,41 +1897,79 @@ export const getAllUsers = asyncHandler(async(req, res) => {
 export const editUserVars = asyncHandler(async(req, res) => {
     const { addresses, type, value } = req.body;
 
-    const field = type === 'Res' ? 'resource'
-        : type === 'Eggs' ? 'eggs'
-        : type === 'Gbaks' ? 'gbaks'
-        : type === 'Premium' ? 'premium'
-        : type === 'Mining Module' ? 'miningModule'
-        : type === 'Gold Mine' ? 'goldMine'
+    // duplicate check
+    const duplicateCheck = {}
+    for (const addrValue of addresses) {
+        // console.log('addrValue', addrValue)
+        duplicateCheck[addrValue] = true
+    }
+    // console.log("duplicateCheck: ", duplicateCheck)
+    
+    const nonDuplicateAddresses = []
+    for (const dupIndex in duplicateCheck) {
+        // console.log('dupIndex', dupIndex)
+        nonDuplicateAddresses.push(dupIndex)
+    }
+    // console.log("nonDuplicateAddresses: ", nonDuplicateAddresses)
+    
+    // Address valid check
+    const validAddresses = nonDuplicateAddresses.filter(item => {
+        return web3Const.utils.isAddress(item)
+    })
+
+    // console.log("validAddresses: ", validAddresses)
+
+    const field = type === 'Gold Mine' ? 'goldMine'
         : type === 'Uranium Mine' ? 'uraniumMine'
+        : type === 'Premium' ? 'premium'
+        : type === 'Lands' ? 'opendPlace'
+        : type === 'Power Plant' ? 'powerMine'
+        : type === 'Mining Module' ? 'miningModule'
+        : type === 'Gbaks' ? 'gbaks'
+        : type === 'Res' ? 'resource'
+        : type === 'Eggs' ? 'eggs'
         : '';
     if (!field) {
         RESPONSE(res, 400, {}, "Type mismatch");
     }
 
-    const existingAddresses = await User.find({ walletAddress: { $in: addresses } })
-      .distinct('walletAddress');
+    const existingAddresses = await User.find({ walletAddress: { $in: validAddresses } }).distinct('walletAddress');
     
     /* update field value if wallet address already exists */
-    if (['resource', 'eggs', 'gbaks'].includes(field)) {
-        await User.updateMany(
-            { walletAddress: { $in: existingAddresses } },
-            { $inc: {[field]: value},},
-            { upsert: true }
-        );
-    } else {
-        const date = new Date(value);
-        await User.updateMany(
-            { walletAddress: { $in: existingAddresses } },
-            { [field]: date },
-            { upsert: true }
-        );
+    if(existingAddresses.length > 0) {
+        if (['resource', 'eggs', 'gbaks'].includes(field)) {
+            await User.updateMany(
+                { walletAddress: { $in: existingAddresses } },
+                { $inc: {[field]: value},},
+                { upsert: true }
+            );
+        } else if(['opendPlace'].includes(field)) {
+            console.log('existingAddresses existingAddrValue _opendPlace value')
+            for(const existingAddrValue of existingAddresses) {
+                const _opendPlace = (await User.findOne({walletAddress: existingAddrValue})).opendPlace
+                console.log(existingAddrValue, _opendPlace, value)
+                if(!_opendPlace.includes(value)) {
+                    await User.findOneAndUpdate(
+                        { walletAddress: existingAddrValue },
+                        { [field]: [..._opendPlace, value] },
+                        { upsert: true }
+                    );
+                }
+            }
+        } else {
+            const date = new Date(value);
+            await User.updateMany(
+                { walletAddress: { $in: existingAddresses } },
+                { [field]: date },
+                { upsert: true }
+            );
+        }
     }
 
     /* create new one if wallet address not exist */
     const character = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-    const fieldValue = ['resource', 'eggs', 'gbaks'].includes(field) ? value : new Date(value);
-    const nonExistingAddresses = addresses.filter(address => !existingAddresses.includes(address));
+    const fieldValue = ['resource', 'eggs', 'gbaks'].includes(field) ? value : ['opendPlace'].includes(field) ? [value] :new Date(value);
+    const nonExistingAddresses = validAddresses.filter(address => !existingAddresses.includes(address));
     for (const index in nonExistingAddresses) {
         let curTime = new Date().getTime() + index;
         let refString = "";
