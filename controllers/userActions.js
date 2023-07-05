@@ -2021,7 +2021,7 @@ export const editUserVars = asyncHandler(async(req, res) => {
         } else if(['opendPlace'].includes(field)) {
             for(const existingAddrValue of existingAddresses) {
                 const _opendPlace = (await User.findOne({walletAddress: existingAddrValue})).opendPlace
-                console.log(existingAddrValue, _opendPlace, value)
+                // console.log(existingAddrValue, _opendPlace, value)
                 if(!_opendPlace.includes(value)) {
                     await User.findOneAndUpdate(
                         { walletAddress: existingAddrValue },
