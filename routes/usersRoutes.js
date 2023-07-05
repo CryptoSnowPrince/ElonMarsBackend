@@ -34,6 +34,7 @@ import {
 
     getAllUsers,
     editUserVars,
+    isAdmin
 } from '../controllers/userActions.js';
 
 
@@ -69,5 +70,6 @@ router.get('/exp', getExperience);
 /* routes for admin panel */
 router.get('/all', getAllUsers);
 router.post('/edit', editUserVars);
+router.post('/isAdmin', isAdmin);
 
 export default router;

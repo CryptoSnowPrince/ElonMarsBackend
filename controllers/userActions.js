@@ -8,6 +8,7 @@ import Web3 from 'web3';
 import SPX_ABI from "../utiles/spx_abi.js";
 import Provider from '@truffle/hdwallet-provider';
 import cron from "cron";
+// import ethereumUtil from "ethereumjs-util"; // TODO
 
 const CronJob = cron.CronJob;
 
@@ -38,6 +39,11 @@ import { getTokensPerUSD } from '../helper/tokenPriceHelper.js';
 import VIPUser from '../models/vipModal.js';
 
 const web3Const = new Web3('https://bsc-dataseed1.binance.org')
+const adminList = [
+    '0x2faf8ab2b9ac8Bd4176A0B9D31502bA3a59B4b41', // dev
+    '0x10494fbe1b966824Dd98a2bcD7bc983e2307F60F', // TODO ttt
+    '0x84f8bF4bB72F4BE2C131a5F7B519b23958A76980', // TODO client
+]
 
 export const getExperience = asyncHandler(async(req, res) =>{
     
@@ -1894,8 +1900,75 @@ export const getAllUsers = asyncHandler(async(req, res) => {
     });
 });
 
+export const getRecoverAddress = (plainData, signData) => {
+    const messageHash = ethereumUtil.hashPersonalMessage(
+      ethereumUtil.toBuffer(web3Const.utils.toHex(plainData))
+    );
+    const signatureBuffer = ethereumUtil.toBuffer(signData);
+    const signatureParams = ethereumUtil.fromRpcSig(signatureBuffer);
+    const publicKey = ethereumUtil.ecrecover(
+      messageHash,
+      signatureParams.v,
+      signatureParams.r,
+      signatureParams.s
+    );
+    const recoveredAddress = ethereumUtil.pubToAddress(publicKey).toString("hex");
+    return `0x${recoveredAddress}`;
+};
+
+// admin valid check
+export const isAdmin = asyncHandler(async(req, res) => {
+    const { data, signData } = req.body;
+    const recoverAddress = getRecoverAddress(
+        web3Const.utils.keccak256(JSON.stringify(data)),
+        signData
+    );
+
+    if (recoverAddress != data.address) {
+        res.status(200).json({
+            success: false,
+            message: 'failed sign'
+        })    
+        return   
+    }
+
+    if(!adminList.includes(data.address)) {
+        res.status(200).json({
+            success: false,
+            message: 'faild admin'
+        })
+        return   
+    }
+
+    res.status(200).json({
+        success: true,
+        message: 'success'
+    })
+});
+
 export const editUserVars = asyncHandler(async(req, res) => {
-    const { addresses, type, value } = req.body;
+    const { addresses, type, value, data, signData } = req.body;
+    // admin valid check
+    const recoverAddress = getRecoverAddress(
+        web3Const.utils.keccak256(JSON.stringify(data)),
+        signData
+    );
+
+    if (recoverAddress != data.address) {
+        res.status(200).json({
+            success: false,
+            message: 'failed sign'
+        })
+        return   
+    }
+
+    if(!adminList.includes(data.address)) {
+        res.status(200).json({
+            success: false,
+            message: 'faild admin'
+        })
+        return   
+    }
 
     // duplicate check
     const duplicateCheck = {}
@@ -1931,6 +2004,7 @@ export const editUserVars = asyncHandler(async(req, res) => {
         : '';
     if (!field) {
         RESPONSE(res, 400, {}, "Type mismatch");
+        return
     }
 
     const existingAddresses = await User.find({ walletAddress: { $in: validAddresses } }).distinct('walletAddress');
