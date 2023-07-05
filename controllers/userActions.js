@@ -1901,19 +1901,20 @@ export const getAllUsers = asyncHandler(async(req, res) => {
 });
 
 export const getRecoverAddress = (plainData, signData) => {
-    const messageHash = ethereumUtil.hashPersonalMessage(
-      ethereumUtil.toBuffer(web3Const.utils.toHex(plainData))
-    );
-    const signatureBuffer = ethereumUtil.toBuffer(signData);
-    const signatureParams = ethereumUtil.fromRpcSig(signatureBuffer);
-    const publicKey = ethereumUtil.ecrecover(
-      messageHash,
-      signatureParams.v,
-      signatureParams.r,
-      signatureParams.s
-    );
-    const recoveredAddress = ethereumUtil.pubToAddress(publicKey).toString("hex");
-    return `0x${recoveredAddress}`;
+    // TODO
+    // const messageHash = ethereumUtil.hashPersonalMessage(
+    //   ethereumUtil.toBuffer(web3Const.utils.toHex(plainData))
+    // );
+    // const signatureBuffer = ethereumUtil.toBuffer(signData);
+    // const signatureParams = ethereumUtil.fromRpcSig(signatureBuffer);
+    // const publicKey = ethereumUtil.ecrecover(
+    //   messageHash,
+    //   signatureParams.v,
+    //   signatureParams.r,
+    //   signatureParams.s
+    // );
+    // const recoveredAddress = ethereumUtil.pubToAddress(publicKey).toString("hex");
+    // return `0x${recoveredAddress}`;
 };
 
 // admin valid check
@@ -1948,27 +1949,27 @@ export const isAdmin = asyncHandler(async(req, res) => {
 
 export const editUserVars = asyncHandler(async(req, res) => {
     const { addresses, type, value, data, signData } = req.body;
-    // admin valid check
-    const recoverAddress = getRecoverAddress(
-        web3Const.utils.keccak256(JSON.stringify(data)),
-        signData
-    );
+    // admin valid check TODO
+    // const recoverAddress = getRecoverAddress(
+    //     web3Const.utils.keccak256(JSON.stringify(data)),
+    //     signData
+    // );
 
-    if (recoverAddress != data.address) {
-        res.status(200).json({
-            success: false,
-            message: 'failed sign'
-        })
-        return   
-    }
+    // if (recoverAddress != data.address) {
+    //     res.status(200).json({
+    //         success: false,
+    //         message: 'failed sign'
+    //     })
+    //     return   
+    // }
 
-    if(!adminList.includes(data.address)) {
-        res.status(200).json({
-            success: false,
-            message: 'faild admin'
-        })
-        return   
-    }
+    // if(!adminList.includes(data.address)) {
+    //     res.status(200).json({
+    //         success: false,
+    //         message: 'faild admin'
+    //     })
+    //     return   
+    // }
 
     // duplicate check
     const duplicateCheck = {}
@@ -2018,7 +2019,6 @@ export const editUserVars = asyncHandler(async(req, res) => {
                 { upsert: true }
             );
         } else if(['opendPlace'].includes(field)) {
-            console.log('existingAddresses existingAddrValue _opendPlace value')
             for(const existingAddrValue of existingAddresses) {
                 const _opendPlace = (await User.findOne({walletAddress: existingAddrValue})).opendPlace
                 console.log(existingAddrValue, _opendPlace, value)
