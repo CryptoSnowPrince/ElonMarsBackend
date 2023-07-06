@@ -1,5 +1,0 @@
-[Sat Feb 18 2023 11:50:30 GMT+0900 (Japan Standard Time)] (Withdraw: --process start-- ) amount: 44500 
-1 BUSD transaction ID: 0xb5f6252265ebc2ae14420bf20c32082a947c3cb329ffec8a7f3cd1cc025ea367 
-[Sat Feb 18 2023 11:50:32 GMT+0900 (Japan Standard Time)] (Withdraw Fee (1BUSD):You sent scam transaction) amount: ERROR 
-[Sat Feb 18 2023 11:50:33 GMT+0900 (Japan Standard Time)] (Withdraw:Database Update) amount: SUCCESS 
-[Sat Feb 18 2023 11:50:42 GMT+0900 (Japan Standard Time)] (Withdraw:Sent 4450SPX) amount: SUCCESS 

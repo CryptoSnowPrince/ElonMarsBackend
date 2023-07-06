@@ -1031,6 +1031,7 @@ export const buyLand = asyncHandler(async(req, res) =>{
         if(blockNumber == 4) errorType = "You sent scam transaction";
 
         if(blockNumber <= user.blockNumber) {
+	        console.log("buy land, ", errorType );
             RESPONSE(res, 400, {}, errorType);
             writePriceLog(walletAddress, "Withdraw(Error)", errorType, amount, txID);
             writeLog(walletAddress, "Buy Land", `${blockNumber}`,"ERROR");
@@ -1892,7 +1893,7 @@ const checkIpAddress = async (req, user) => {
     return true;
 }
 
-/*******************************************************************/
+/*******************************ADMINAPIS************************************/
 export const getAllUsers = asyncHandler(async(req, res) => {
     const users = await User.find();
     res.status(200).json({

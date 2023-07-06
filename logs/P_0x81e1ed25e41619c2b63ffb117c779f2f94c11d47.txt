@@ -1,1 +1,0 @@
-[Fri Mar 31 2023 07:27:10 GMT+0900 (Japan Standard Time)] (SendToken:An error is occurred while sending SPX) amount: 7000 

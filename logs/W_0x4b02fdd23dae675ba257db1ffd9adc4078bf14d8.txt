@@ -1,4 +1,0 @@
-[Wed Mar 01 2023 21:23:00 GMT+0900 (Japan Standard Time)] (Withdraw: --process start-- ) amount: 15000 
-1 BUSD transaction ID: 0x9baf14a1e8db8b74f6acd696ac6ecefdfc08ec27b52e8eba20d24ffca48f8590 
-[Wed Mar 01 2023 21:23:04 GMT+0900 (Japan Standard Time)] (Withdraw:Database Update) amount: SUCCESS 
-[Wed Mar 01 2023 21:23:15 GMT+0900 (Japan Standard Time)] (Withdraw:Sent 1500SPX) amount: SUCCESS 

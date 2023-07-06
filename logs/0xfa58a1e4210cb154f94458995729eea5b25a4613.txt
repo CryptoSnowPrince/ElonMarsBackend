@@ -1,2 +1,0 @@
-[Wed Feb 22 2023 23:12:32 GMT+0900 (Japan Standard Time)]  [REQUEST] (Check Transaction)  
-[Wed Feb 22 2023 23:12:35 GMT+0900 (Japan Standard Time)]  [REQUEST] (SendToken)  

@@ -1,6 +1,0 @@
-winner: [removeCreatedUserRoom]
-[Thu Jun 08 2023 03:50:51 GMT+0900 (Japan Standard Time)]: (null BUSD)  (0x2f51c0Cbf0AE192c19bfe46159d18be6196a31fe vs null) unit: [ vs ]  ability: [ vs ]
-winner: [removeCreatedUserRoom]
-[Thu Jun 08 2023 03:52:09 GMT+0900 (Japan Standard Time)]: (null BUSD)  (0x2f51c0Cbf0AE192c19bfe46159d18be6196a31fe vs null) unit: [ vs ]  ability: [ vs ]
-winner: [removeCreatedUserRoom]
-[Thu Jun 08 2023 03:53:09 GMT+0900 (Japan Standard Time)]: (null BUSD)  (0x2f51c0Cbf0AE192c19bfe46159d18be6196a31fe vs null) unit: [ vs ]  ability: [ vs ]

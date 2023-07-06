@@ -1,3 +1,0 @@
-[Tue Mar 07 2023 04:05:08 GMT+0900 (Japan Standard Time)] (Buy Land:Request) amount: 1 
-Transaction ID: 0xfa4d92793e0478452e45964981f14a31ba4b0734dc3c95fc11a97de4456cfa7a 
-[Tue Mar 07 2023 04:05:10 GMT+0900 (Japan Standard Time)] (Buy Land:Success) amount: 1 

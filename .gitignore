@@ -1,4 +1,6 @@
+.env 
 /node_modules
-.env
+# logs
+# pvplogs
 utiles/constants.js
 *.rar

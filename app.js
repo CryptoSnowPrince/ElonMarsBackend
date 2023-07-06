@@ -30,8 +30,6 @@ connectMongoDB();
 //Importing the routes ............................
 import usersRouter from './routes/usersRoutes.js';
 import pvpRouter from './routes/pvpRoutes.js';
-import { getTokenPrice } from "./helper/tokenPriceHelper.js";
-import { TOKEN_CONTRACT_ADDRESS } from "./utiles/constants.js";
 
 //middleware function calling .....................
 const app = express();
@@ -41,15 +39,6 @@ app.use(bodyParser.urlencoded());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cors());
 app.use(cookieParser());
-
-// set up rate limiter
-const limiter = rateLimit({
-  windowMs: 1 * 60 * 60 * 1000, // 15 minutes
-  max: 300 // limit each IP to 100 requests per windowMs
-});
-
-// apply rate limiter to all requests
-app.use(limiter);
 
 const __dirname = path.resolve();
 app.use(serveStatic(path.join(__dirname, 'public')));
@@ -67,24 +56,6 @@ const requestCountByClientId = {};
 
 // SOCKET SERVER
 const io = new Server(server);
-
-io.use((socket, next) => {
-  const clientId = socket.id;
-  const now = Date.now();
-  const lastRequestTime = requestCountByClientId[clientId] || 0;
-
-  if (lastRequestTime + 1000 < now) {
-    // reset request count if last request was more than 60 seconds ago
-    requestCountByClientId[clientId] = 1;
-  } else if (requestCountByClientId[clientId] >= 20) {
-    // enforce rate limit of 10 requests per minute
-    socket.emit('error', 'Rate limit exceeded');
-    return;
-  } else {
-    requestCountByClientId[clientId]++;
-  }
-  next(); // allow request to proceed
-});
 
 io.on("connection", function (socket) {
   socketConnectionManager(socket, io);

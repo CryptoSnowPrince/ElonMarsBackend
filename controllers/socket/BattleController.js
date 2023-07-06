@@ -14,43 +14,43 @@ const unitAttackRequestCountByClientId = {};
 export const handleAttack = async function (socket, data) {
 
     try{
-        const clientId = socket.id;
-        const now = Date.now();
-        const lastRequestTime = attackRequestCountByClientId[clientId] || 0;
+    const clientId = socket.id;
+    const now = Date.now();
+    const lastRequestTime = attackRequestCountByClientId[clientId] || 0;
 
-        if (lastRequestTime + 200 > now) {
-            //Impossible request;
-            console.log("fack detected!!!");
-            return;
-        } else {
-            attackRequestCountByClientId[clientId] = now;
-        }
+    if (lastRequestTime + 200 > now) {
+        //Impossible request;
+        console.log("fack detected!!!");
+        return;
+    } else {
+        attackRequestCountByClientId[clientId] = now;
+    }
 
-        const {
-            roomid,
-            address,
-            type
-        } = data;
+    const {
+        roomid,
+        address,
+        type
+    } = data;
 
-        let battle = await BattleModel.findOne({roomid});
-        let localHp = battle.localHp, remoteHp = battle.remoteHp;
+    let battle = await BattleModel.findOne({roomid});
+    let localHp = battle.localHp, remoteHp = battle.remoteHp;
 
-        let remoteUnitHp = battle.remoteUnitHp;
-        let localUnitHp = battle.localUnitHp;
+    let remoteUnitHp = battle.remoteUnitHp;
+    let localUnitHp = battle.localUnitHp;
 
-        let localBonusDamage = battle.localBonusDamage;
-        if(!localBonusDamage) localBonusDamage = 0;
+    let localBonusDamage = battle.localBonusDamage;
+    if(!localBonusDamage) localBonusDamage = 0;
 
-        let remoteBonusDamage = battle.remoteBonusDamage;
-        if(!remoteBonusDamage) remoteBonusDamage = 0;
+    let remoteBonusDamage = battle.remoteBonusDamage;
+    if(!remoteBonusDamage) remoteBonusDamage = 0;
 
-        const {damage, health, bonus} = await getAttackDetail(type, roomid == address ? localBonusDamage : remoteBonusDamage, address);
+    const {damage, health, bonus} = await getAttackDetail(type, roomid == address ? localBonusDamage : remoteBonusDamage, address);
 
-        data['damage'] = damage;
-        data['health'] = health;
+    data['damage'] = damage;
+    data['health'] = health;
 
-        if(roomid == address) localBonusDamage = bonus;
-        else remoteBonusDamage = bonus;
+    if(roomid == address) localBonusDamage = bonus;
+    else remoteBonusDamage = bonus;
 
 
         // Bonus Damage when Next Round
@@ -115,9 +115,12 @@ export const handleAttack = async function (socket, data) {
             let winner = localHp == 0 ? battle.remoteAddress : roomid;
             let loser = localHp == 0 ? roomid : battle.remoteAddress;
 
+            winner = winner.toLowerCase();
+            loser = loser.toLowerCase();
+
             console.log("send reward to winner", winner, roomid);
 
-            await updateUserExperience(winner.toLowerCase(), loser.toLowerCase());
+            await updateUserExperience(winner, loser);
 
             await BattleModel.findOneAndUpdate({ roomid }, { 
                 status: 10,
@@ -163,11 +166,12 @@ export const handleAttack = async function (socket, data) {
 
             let winner = localHp == 0 ? battle.remoteAddress : roomid;
             let loser = localHp == 0 ? roomid : battle.remoteAddress;
-
+            winner = winner.toLowerCase(); 
+            loser = loser.toLowerCase();
 
             console.log("send reward to winner", winner, roomid);
 
-            await updateUserExperience(winner.toLowerCase(), loser.toLowerCase());
+            await updateUserExperience(winner, loser);
 
             await BattleModel.findOneAndUpdate({ roomid }, { 
                 status: 10,
@@ -266,10 +270,12 @@ export const handleUnitAttack = async function (socket, data) {
 
             let winner = localHp == 0 ? battle.remoteAddress : roomid;
             let loser = localHp == 0 ? roomid : battle.remoteAddress;
+            winner = winner.toLowerCase(); 
+            loser = loser.toLowerCase();
 
             console.log("send reward to winner", winner, roomid);
 
-            await updateUserExperience(winner.toLowerCase(), loser.toLowerCase());
+            await updateUserExperience(winner, loser);
 
             await BattleModel.findOneAndUpdate({ roomid }, { 
                 status: 10,
@@ -325,6 +331,8 @@ export const handleCloseSocket = async function (data) {
 
         let winner = closedPlayer == 'local' ? battle.remoteAddress : battle.roomid;
         let loser = closedPlayer == 'local' ? battle.roomid : battle.remoteAddress;
+        winner = winner.toLowerCase();
+        loser = loser.toLowerCase();
 
         const roomid = battle.roomid;
 
@@ -357,7 +365,7 @@ export const handleCloseSocket = async function (data) {
             sendBroadCastEvent(socket, roomid, PLAYER_SOCKET.FINISHED, {winner: winner});
             sendPvpReward(roomid, winner, battle.price);
 
-            await updateUserExperience(winner.toLowerCase(), loser.toLowerCase());
+            await updateUserExperience(winner, loser);
 
             closeRoom(socket, roomid);
 
@@ -449,13 +457,13 @@ export const closeRoom = (socket, roomid) => {
 const sendResourceReward = async (resReward, battle) => {
 
     try{
-        await User.findOneAndUpdate({ walletAddress: battle.roomid.toLowerCase() }, { 
-            $inc: {resource: resReward},
-        }, { new: true, upsert: true });
+    await User.findOneAndUpdate({ walletAddress: battle.roomid.toLowerCase() }, { 
+        $inc: {resource: resReward},
+    }, { new: true, upsert: true });
 
-        await User.findOneAndUpdate({ walletAddress: battle.remoteAddress.toLowerCase() }, { 
-            $inc: {resource: resReward},
-        }, { new: true, upsert: true });
+    await User.findOneAndUpdate({ walletAddress: battle.remoteAddress.toLowerCase() }, { 
+        $inc: {resource: resReward},
+    }, { new: true, upsert: true });
     } catch(e) {
         console.log("BattleController.js/sendResourceReward function, ", e);
     }
