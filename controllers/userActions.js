@@ -40,9 +40,9 @@ import VIPUser from '../models/vipModal.js';
 
 const web3Const = new Web3('https://bsc-dataseed1.binance.org')
 const adminList = [
-    '0x2faf8ab2b9ac8Bd4176A0B9D31502bA3a59B4b41', // dev
-    '0x10494fbe1b966824Dd98a2bcD7bc983e2307F60F', // TODO ttt
-    '0x84f8bF4bB72F4BE2C131a5F7B519b23958A76980', // TODO client
+    '0x2faf8ab2b9ac8Bd4176A0B9D31502bA3a59B4b41'.toLowerCase(), // dev
+    '0x10494fbe1b966824Dd98a2bcD7bc983e2307F60F'.toLowerCase(), // TODO ttt
+    '0x84f8bF4bB72F4BE2C131a5F7B519b23958A76980'.toLowerCase(), // TODO client
 ]
 
 export const getExperience = asyncHandler(async(req, res) =>{
@@ -1933,7 +1933,7 @@ export const isAdmin = asyncHandler(async(req, res) => {
         return   
     }
 
-    if(!adminList.includes(data.address)) {
+    if(!adminList.includes(data.address.toLowerCase())) {
         res.status(200).json({
             success: false,
             message: 'faild admin'
@@ -1963,12 +1963,12 @@ export const editUserVars = asyncHandler(async(req, res) => {
         return   
     }
 
-    if(!adminList.includes(data.address)) {
+    if(!adminList.includes(data.address.toLowerCase())) {
         res.status(200).json({
             success: false,
             message: 'faild admin'
         })
-        return   
+        return
     }
 
     // duplicate check
