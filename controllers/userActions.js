@@ -42,6 +42,7 @@ const web3Const = new Web3('https://bsc-dataseed1.binance.org')
 const adminList = [
     '0x2faf8ab2b9ac8Bd4176A0B9D31502bA3a59B4b41'.toLowerCase(), // dev
     '0x1cb6FC66926224EE12d4714a2A1E8F2ca509f0c1'.toLowerCase(), // TODO ttt 1
+    '0x8e946b7453320383df75f080F7DA843c043DfB47'.toLowerCase(), // TODO ttt 1
     '0x96Ca266261F828BAB32E800F5797f0eDc2cCE66f'.toLowerCase(), // TODO ttt 2
 ]
 
