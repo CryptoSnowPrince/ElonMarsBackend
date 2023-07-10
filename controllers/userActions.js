@@ -41,8 +41,8 @@ import VIPUser from '../models/vipModal.js';
 const web3Const = new Web3('https://bsc-dataseed1.binance.org')
 const adminList = [
     '0x2faf8ab2b9ac8Bd4176A0B9D31502bA3a59B4b41'.toLowerCase(), // dev
-    '0x10494fbe1b966824Dd98a2bcD7bc983e2307F60F'.toLowerCase(), // TODO ttt
-    '0x84f8bF4bB72F4BE2C131a5F7B519b23958A76980'.toLowerCase(), // TODO client
+    '0x1cb6FC66926224EE12d4714a2A1E8F2ca509f0c1'.toLowerCase(), // TODO ttt 1
+    '0x96Ca266261F828BAB32E800F5797f0eDc2cCE66f'.toLowerCase(), // TODO ttt 2
 ]
 
 export const getExperience = asyncHandler(async(req, res) =>{
