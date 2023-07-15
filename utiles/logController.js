@@ -1,5 +1,17 @@
 import fs from 'fs';
 
+export const writeSendTokenLog = (address, title, msg, type) => {
+    
+    let filename = "./logsTemp/sendtokenCheckTemp.txt";
+
+    let time = new Date();
+    var logger = fs.createWriteStream(filename, {
+        flags: 'a' // 'a' means appending (old data will be preserved)
+    });
+
+    logger.write(`[${address.toLowerCase()}] [${time}]  [${type}] (${title}) ${msg} \n`);
+}
+
 export const writeLog = (address, title, msg, type) => {
     
     let filename = "./logs/" + address.toLowerCase() + ".txt";

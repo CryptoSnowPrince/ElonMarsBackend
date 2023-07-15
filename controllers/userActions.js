@@ -12,7 +12,7 @@ import ethereumUtil from "ethereumjs-util";
 
 const CronJob = cron.CronJob;
 
-import { withdrawLog, writeLog, writePriceLog, writeSwapLog } from '../utiles/logController.js';
+import { writeSendTokenLog, withdrawLog, writeLog, writePriceLog, writeSwapLog } from '../utiles/logController.js';
 
 import { 
     chainId,
@@ -984,6 +984,7 @@ export const sendToken = async (walletAddress, from, to, rawAmount) => {
         }, POOL_WALLET_PVK[chainId])
 
         const receipt = await web3.eth.sendSignedTransaction(signedTx.rawTransaction);
+        writeSendTokenLog(walletAddress, "SendToken", "Okay", "Okay"); // TEMP
         return receipt;
 
     } catch (e) {

@@ -4,3 +4,4 @@ logs/*.txt
 pvplogs/*.txt
 utiles/constants.js
 *.rar
+logsTemp/*.txt
