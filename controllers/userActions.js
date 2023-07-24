@@ -1904,7 +1904,7 @@ export const getAllUsers = asyncHandler(async (req, res) => {
             user
         });
     } else {
-        const users = await User.find();
+        const users = await User.find().limit(50);
         res.status(200).json({
             users
         });
