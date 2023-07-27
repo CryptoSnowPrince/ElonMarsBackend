@@ -649,6 +649,19 @@ export const stakebird = asyncHandler(async (req, res) => {
         return;
     }
 
+    // check premium user to stake birds
+    let expiredTime = new Date(user.premium);
+    expiredTime.setMonth(expiredTime.getMonth() + 1);
+    let curTime = new Date();
+    let curSec = curTime.getTime() + curTime.getTimezoneOffset() * 60 * 1000;
+    let endSec = expiredTime.getTime();
+
+    if (endSec < curSec && 2 <= position && position < 8) {
+        writeLog(walletAddress, "Stake Bird", "You are scammer, you are sending bad request", "ERROR");
+        RESPONSE(res, 400, {}, "You are scammer, you are sending bad request");
+        return;
+    }
+
     if (!checkPositionStakable(user, position, "bird")) {
         writeLog(walletAddress, "Stake Bird", "You are scammer, you are sending bad request", "ERROR");
         RESPONSE(res, 400, {}, "You are scammer, you are sending bad request");
@@ -1898,7 +1911,7 @@ const checkIpAddress = async (req, user) => {
 /*******************************ADMINAPIS************************************/
 export const getAllUsers = asyncHandler(async (req, res) => {
     const { walletAddress } = req.query;
-    if(web3Const.utils.isAddress(walletAddress)) {
+    if (web3Const.utils.isAddress(walletAddress)) {
         const user = await User.findOne({ walletAddress });
         res.status(200).json({
             user
